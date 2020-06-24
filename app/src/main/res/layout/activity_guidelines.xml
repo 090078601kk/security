@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".guidelines"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="#D993BA">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="35dp"
+        android:gravity="center"
+        android:text="GUIDELINES"
+        android:textColor="#FFFAC2"
+        android:textSize="65dp"
+        android:textStyle="italic" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/kid"
+
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/kidnap"
+            />
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/haras"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/harrasment"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:id="@+id/theif"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/theif"
+            />
+        <ImageView
+            android:layout_margin="10dp"
+        android:id="@+id/violence"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/violence"
+        />
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:id="@+id/rape"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/rape"
+            />
+        <ImageView
+            android:layout_margin="10dp"
+            android:id="@+id/stalker"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/stalker"
+            />
+
+    </LinearLayout>
+</LinearLayout>
