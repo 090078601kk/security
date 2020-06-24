@@ -1,12 +1,7 @@
 package com.example.security;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.PermissionChecker;
-
-
 import android.app.Activity;
 import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -14,21 +9,11 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
-import android.webkit.PermissionRequest;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.example.security.Url.domain;
+import androidx.appcompat.app.AppCompatActivity;
 public class contacts extends AppCompatActivity {
     Context context;
     Button save;
