@@ -7,7 +7,7 @@
     tools:context="contacts"
     android:orientation="vertical">
     <TextView
-        android:text="Save Number To Emergency "
+        android:text="Save No. To Emergency "
         android:textSize="30sp"
         android:textColor="#202020"
         android:layout_width="match_parent"
