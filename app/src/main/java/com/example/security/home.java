@@ -37,6 +37,7 @@ public class home extends AppCompatActivity {
             }
         });
         guide=(LinearLayout)findViewById(R.id.guide);
+        gen=(LinearLayout)findViewById(R.id.gen);
         con=(LinearLayout)findViewById(R.id.con);
         trivia=(LinearLayout)findViewById(R.id.trivia);
         trivia.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +65,14 @@ public class home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        gen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(home.this,general_issues.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
 
 
     }

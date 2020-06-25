@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".contacts_show"></activity>
+        <activity android:name=".general_issues"/>
+        <activity android:name=".contacts_show" />
         <activity android:name=".guideline_single" />
         <activity android:name=".emergency" />
         <activity android:name=".trivia" />
