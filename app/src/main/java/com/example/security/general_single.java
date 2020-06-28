@@ -1,9 +1,10 @@
 package com.example.security;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,7 +23,6 @@ public class general_single extends AppCompatActivity {
     Bundle bundle;
 
     String t,lo,l,d;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +64,6 @@ public class general_single extends AppCompatActivity {
             }
         });
         MySingleton.getmInstanse(this).addToRequest(imageee);
-
 
 
     }
