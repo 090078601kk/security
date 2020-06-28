@@ -182,7 +182,7 @@ public class general_issues extends AppCompatActivity {
                     bundle.putString("t",title);
                     bundle.putString("des",des);
                     bundle.putString("link",link);
-                    Intent intent=new Intent(general_issues.this,guideline_single.class);
+                    Intent intent=new Intent(general_issues.this,general_single.class);
                     intent.putExtras(bundle);
                     startActivity(intent);
 
