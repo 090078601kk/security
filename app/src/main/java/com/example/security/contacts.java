@@ -26,7 +26,7 @@ public class contacts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
         context = this.context;
-        tv = findViewById(R.id.errorTV);
+        tv = findViewById(R.id.TV);
         save = (Button) findViewById(R.id.save);
         phone = (TextView) findViewById(R.id.phone);
         con = (TextView) findViewById(R.id.con);
