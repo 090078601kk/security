@@ -46,7 +46,7 @@ public class general_issues extends AppCompatActivity {
         skin=(ImageView)findViewById(R.id.skin);
         mus=(ImageView)findViewById(R.id.mus);
         //language show only
-        Toast.makeText(this, sl, Toast.LENGTH_SHORT).show();
+
 
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +55,7 @@ public class general_issues extends AppCompatActivity {
                 {
                     con("دل کا دورہ");
                 }else {
-                    con("Heart Attack");
+                    con("1");
 
                 }
             }
@@ -67,7 +67,7 @@ public class general_issues extends AppCompatActivity {
                 {
                     con(" حمل:");
                 }else {
-                    con("Pregnancy");
+                    con("2");
 
                 }
             }
@@ -79,7 +79,7 @@ public class general_issues extends AppCompatActivity {
                 {
                     con("ہائی بلڈ پریشر");
                 }else {
-                    con("High Blood Pressure");
+                    con("3");
 
                 }
             }
@@ -91,7 +91,7 @@ public class general_issues extends AppCompatActivity {
                 {
                     con("افسردگی");
                 }else {
-                    con("Depression");
+                    con("4");
 
                 }
             }
@@ -103,7 +103,7 @@ public class general_issues extends AppCompatActivity {
                 {
                     con("پریشان ");
                 }else {
-                    con("Anxiety");
+                    con("5");
 
                 }
             }
@@ -115,7 +115,7 @@ public class general_issues extends AppCompatActivity {
                 {
                     con("کورونا وائرس");
                 }else {
-                    con("Corona Virus");
+                    con("6");
                 }
             }
         });
@@ -126,7 +126,7 @@ public class general_issues extends AppCompatActivity {
                 {
                     con("جلد میں انفیکشن");
                 }else {
-                    con("Skin Infection");
+                    con("7");
                 }
             }
         });
@@ -137,7 +137,7 @@ public class general_issues extends AppCompatActivity {
                 {
                     con("ٹی بی");
                 }else {
-                    con("T B");
+                    con("8");
                 }
             }
         });
@@ -148,20 +148,20 @@ public class general_issues extends AppCompatActivity {
                 {
                     con("پٹھوں میں درد");
                 }else {
-                    con("Muscular  Issues");
+                    con("9");
                 }
             }
         });
     }
+
     public void con(final String info){
+
         String path;
         if(sl.equals("urdu"))
         {
             path=Url.domain_gen_issue_urdu;
-
         }else {
             path=Url.domain_gen_issue_eng;
-
         }
         StringRequest stringRequest;
         stringRequest = new StringRequest(Request.Method.DEPRECATED_GET_OR_POST,path,new Response.Listener<String>() {
@@ -169,11 +169,8 @@ public class general_issues extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
 
-
-
                     JSONArray jsonArray=new JSONArray(response);
                     JSONObject jsonObject=jsonArray.getJSONObject(0);
-
                     logo=jsonObject.getString("logo");
                     title=jsonObject.getString("t");
                     des=jsonObject.getString("des");
@@ -182,19 +179,14 @@ public class general_issues extends AppCompatActivity {
                     bundle.putString("t",title);
                     bundle.putString("des",des);
                     bundle.putString("link",link);
-                    Intent intent=new Intent(general_issues.this,guideline_single.class);
+                    Intent intent=new Intent(general_issues.this,general_single.class);
                     intent.putExtras(bundle);
                     startActivity(intent);
 
-
-
                 } catch (JSONException e) {
-                    Toast.makeText(general_issues.this, "Json Error ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(general_issues.this, "Json Error", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
-
-
-
 
             }
 

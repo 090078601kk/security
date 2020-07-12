@@ -1,7 +1,11 @@
 package com.example.security;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,8 +26,8 @@ int t;
             Url.domain_img = "http://www.tahaffuz.tk/admin/images/";
             Url.domain_guide_eng = domain+"guide.php";
             Url.domain_guide_urdu = domain+"guide_urdu.php";
-            Url. domain_gen_issue_urdu = domain+"gen_issues.php";
-            Url. domain_gen_issue_eng = domain+"gen_issues_urdu.php";
+            Url.domain_gen_issue_urdu = domain+"gen_issues_urdu.php";
+            Url.domain_gen_issue_eng = domain+"gen_issues.php";
             Url. domain_trivia_eng = domain+"trivia.php";
             Url. domain_trivia_urdu = domain+"trivia_urdu.php";
 
@@ -32,11 +36,11 @@ int t;
             Url.domain = "https://www.tahaffuz.tk/users/";
             Url.domain_img = "https://www.tahaffuz.tk/admin/images/";
             Url.domain_guide_eng = domain+"guide.php";
-            Url.domain_guide_urdu = domain+"guide_urdu.php";
-            Url. domain_gen_issue_urdu = domain+"gen_issues.php";
-            Url. domain_gen_issue_eng = domain+"gen_issues_urdu.php";
+            Url.domain_gen_issue_urdu = domain+"gen_issues_urdu.php";
+            Url.domain_gen_issue_eng = domain+"gen_issues.php";
             Url. domain_trivia_eng = domain+"trivia.php";
             Url. domain_trivia_urdu = domain+"trivia_urdu.php";
+
 
         }
 
@@ -47,7 +51,7 @@ int t;
             public void run() {
                 try {
                     // Thread will sleep for 5 seconds
-                    sleep(5*1000);
+                    sleep(3*1000);
 
                     // After 5 seconds redirect to another intmainent
                     Intent i=new Intent(getBaseContext(),home.class);
@@ -66,4 +70,5 @@ int t;
         background.start();
 
     }
+
 }

@@ -1,12 +1,15 @@
 package com.example.security;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,23 +17,39 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-public class contacts extends AppCompatActivity {
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class contacts extends AppCompatActivity  {
     Context context;
     Button save;
     TextView phone,con;
     String name="security";
     TextView tv;
+    String p="";
+    public static final int MULTIPLE_PERMISSIONS = 10; // code you want.
+    String[] permissions= new String[]{
+
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.SEND_SMS};
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
         context = this.context;
-        tv = findViewById(R.id.errorTV);
+        tv = findViewById(R.id.error);
         save = (Button) findViewById(R.id.save);
         phone = (TextView) findViewById(R.id.phone);
         con = (TextView) findViewById(R.id.con);
-        getContactList();
+        if (checkPermissions()){
+        //  permissions  granted.
+            getContactList();
+    }
+
         save.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -104,8 +123,10 @@ public class contacts extends AppCompatActivity {
 
                         if(name.equals("EMERGENCY"))
                         {
-                            String as=con.getText().toString();
+                            p=phoneNo;
+                            String as=con.getText().toString()+"\n";
                             con.setText(as+phoneNo);
+
 
                         }
 
@@ -116,6 +137,43 @@ public class contacts extends AppCompatActivity {
         }
         if(cur!=null){
             cur.close();
+
+        }
+
+    }
+    private  boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        for (String p:permissions) {
+            result = ContextCompat.checkSelfPermission(contacts.this,p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),MULTIPLE_PERMISSIONS );
+            return false;
+        }
+        return true;
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissionsList[], int[] grantResults) {
+        switch (requestCode) {
+            case MULTIPLE_PERMISSIONS:{
+                if (grantResults.length > 0) {
+                    String permissionsDenied = "";
+                    for (String per : permissionsList) {
+                        if(grantResults[0] == PackageManager.PERMISSION_DENIED){
+                            permissionsDenied += "\n" + per;
+
+                        }
+
+                    }
+                    // Show permissionsDenied
+                    Toast.makeText(context, "Premission Fails", Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
         }
     }
 }

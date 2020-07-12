@@ -40,8 +40,6 @@ public class emergency extends AppCompatActivity {
         setContentView(R.layout.activity_emergency);
         con();
 
-        ;
-
     }
     public void con(){
         StringRequest stringRequest;

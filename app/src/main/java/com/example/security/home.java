@@ -1,8 +1,11 @@
 package com.example.security;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -11,15 +14,42 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class home extends AppCompatActivity {
+    private static final int PERMISSION_REQUEST_CODE = 200;
 
     LinearLayout em,con,trivia,guide,gen;
     String ls="english";
     Bundle bundle;
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+
+            @Override
+            public void onShake(int count) {
+                /*
+                 * The following method, "handleShakeEvent(count):" is a stub //
+                 * method you would use to setup whatever you want done once the
+                 * device has been shook.
+                 */
+
+                Toast.makeText(home.this, "Shaked!!!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(home.this,alert.class));
+            }
+        });
+
+
         bundle=getIntent().getExtras();
         bundle.putString("lang",ls);
         if(bundle.getString("start").equals("start"))
@@ -60,6 +90,7 @@ public class home extends AppCompatActivity {
         con.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent=new Intent(home.this,contacts.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
@@ -99,5 +130,18 @@ public class home extends AppCompatActivity {
 
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Add the following line to register the Session Manager Listener onResume
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    public void onPause() {
+        // Add the following line to unregister the Sensor Manager onPause
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
     }
 }

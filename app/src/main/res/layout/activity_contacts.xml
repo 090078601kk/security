@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="contacts"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/sk16"
+    >
     <TextView
         android:text="Save No. To Emergency "
         android:textSize="30sp"
@@ -12,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
-        android:id="@+id/errorTV"
+        android:id="@+id/error"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textColor="#202020"
@@ -39,11 +41,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
-        android:textSize="10sp"
+        android:textSize="18sp"
         android:layout_marginTop="10dp"
         android:id="@+id/con"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        />
 
 
 

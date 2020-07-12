@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".emergency">
+    tools:context=".emergency"
+    android:background="@drawable/sk15"
+    >
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"

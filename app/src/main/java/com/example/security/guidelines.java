@@ -147,8 +147,6 @@ public class guidelines extends AppCompatActivity {
                     intent.putExtras(bundle);
                         startActivity(intent);
 
-
-
                 } catch (JSONException e) {
                     Toast.makeText(guidelines.this, "Json Error ", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
